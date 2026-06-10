@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        *{
+            background-color: black;
+            padding: 20px;
+        }
+
+        .container{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .items{
+            border: 5px solid white;
+            /* border-bottom-color: transparent; */
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin: 0px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce{
+            /* from { 
+                transform: rotate(0deg);
+            } 
+            to {
+                transform: rotate(360deg);
+            } */
+
+            0% {
+                transform: translateY(-60deg);
+            } 
+            50% {
+                transform: translateY(500px);
+            } 
+            100% {
+                transform: translateY(0);
+            } 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items item1"></div>
+    </div>
+</body>
+</html>

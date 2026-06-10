@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+nav {
+    height: 60px;
+    width: 100vw;
+    display: flex;
+    background-color: rgba(161, 156, 156, 0.219);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 8px 8px 10px rgb(130, 126, 126);
+    position: fixed;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left h1 {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    padding:20px 20px;
+}
+
+.fa-bars {
+    font-size: 20px;
+    color: gray;
+}
+
+.searchBox {
+    position: relative;
+}
+
+.searchBox input {
+    width: 280px;
+    height: 40px;
+    border: none;
+    background: #f2f2f2;
+    border-radius: 30px;
+    padding-left: 50px;
+    font-size: 18px;
+    outline: none;
+}
+
+.searchBox i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.appBtn {
+    border: none;
+    background: #191919;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.write {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    padding-right: 10px;
+}
+
+.fa-bell {
+    color: #666;
+    font-size: 15px;
+    padding-right: 10px;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url("cat.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.sideBar{
+    height: 100vh;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    gap: 10px;
+    box-shadow: 2px 2px 5px gray;
+    padding-top: 30px;
+}
+
+.menu{
+    /* border: 1px solid black; */
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu:hover{
+    cursor: pointer;
+    background-color: #a6a3a330;
+    transform: scale(1.01);
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+.menu span{
+    font-size: larger;
+}
+
+.menu i{
+    padding: 0px 20px;
+    font-size: 20px;
+    color: rgb(108, 101, 101);
+}
+
