@@ -11,13 +11,15 @@ body {
 nav {
     height: 60px;
     width: 100vw;
+    top: 0;
     display: flex;
-    background-color: rgba(161, 156, 156, 0.219);
+    background-color: rgb(255, 255, 255);
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    box-shadow: 8px 8px 10px rgb(130, 126, 126);
+    box-shadow: 8px 8px 10px rgba(130, 126, 126, 0.323);
     position: fixed;
+    z-index: 1000;
 }
 
 .left {
@@ -103,9 +105,17 @@ nav {
     background-position: center;
 }
 
+.container{
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    position: relative;
+}
+
 .sideBar{
     height: 100vh;
-    width: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,7 +123,7 @@ nav {
     top: 60px;
     left: 0px;
     gap: 10px;
-    box-shadow: 2px 2px 5px gray;
+    box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.65);
     padding-top: 30px;
 }
 
@@ -131,12 +141,14 @@ nav {
     cursor: pointer;
     background-color: #a6a3a330;
     transform: scale(1.01);
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
-.menu span{
-    font-size: larger;
+.menu a{
+    font-size: medium;
+    text-decoration: none;
+    color: black;
 }
 
 .menu i{
@@ -145,3 +157,78 @@ nav {
     color: rgb(108, 101, 101);
 }
 
+.mainContent{
+    position: absolute;
+    left: 250px;
+    top: 90px;
+}
+
+.secNavbar{
+    height: 70px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: sticky;
+    top: 60px;
+    margin-bottom: 40px;
+    z-index: 100;
+    background-color: white;
+}
+
+.secNavbar a{
+    text-decoration: none;
+    color: black;
+    margin-right: 30px;
+    position: sticky;
+}
+
+.card{
+    padding: 20px;
+    width: auto;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.authorImg{
+    height: 30px;
+    width: 30px;
+    background-image: url("cat.jpg");
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.intro{
+    display: flex;
+    align-items: center;
+}
+
+.intro span{
+    font-size: 12px;
+    margin: 15px;
+}
+
+.date{
+    font-size: 12px;
+    margin: 15px;
+    color: rgb(101, 100, 100);
+}
+
+.intro i{
+    font-size: 5px;
+}
+
+.subIntro{
+    color: rgb(101, 100, 100);
+}
+
+.articleImg{
+    height: 100px;
+    width: 100px;
+    background-image: url("cat.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+}
