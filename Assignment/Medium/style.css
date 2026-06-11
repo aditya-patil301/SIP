@@ -157,6 +157,10 @@ nav {
     color: rgb(108, 101, 101);
 }
 
+.upperMenu{
+    width: 250px;
+}
+
 .mainContent{
     margin-left: 300px;
     padding-top: 90px;
