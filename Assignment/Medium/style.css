@@ -159,6 +159,8 @@ nav {
 
 .upperMenu{
     width: 250px;
+    border-bottom: 0.2px solid rgba(128, 128, 128, 0.588);
+    padding-bottom: 15px;
 }
 
 .mainContent{
@@ -174,7 +176,7 @@ nav {
     padding: 10px;
     position: sticky;
     top: 60px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     z-index: 100;
     background-color: white;
 }
@@ -201,7 +203,7 @@ nav {
     border-radius: 20px;
     height: 200px;
     width: 700px;
-    padding: 10px;
+    padding: 10px 30px;
     margin-right: 50px;
     display: flex;
     flex-direction: column;
@@ -284,7 +286,7 @@ nav {
 .rightStats .fa-solid{
     color: gray;
     font-size: 18px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .rightStats .fa-regular{
