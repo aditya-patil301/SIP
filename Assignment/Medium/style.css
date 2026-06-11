@@ -115,7 +115,7 @@ nav {
 
 .sideBar{
     height: 100vh;
-    width: 300px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,9 +158,8 @@ nav {
 }
 
 .mainContent{
-    position: absolute;
-    left: 250px;
-    top: 90px;
+    margin-left: 300px;
+    padding-top: 90px;
 }
 
 .secNavbar{
@@ -185,11 +184,32 @@ nav {
 
 .card{
     padding: 20px;
-    width: auto;
-    border: 2px solid black;
+    width: 1000px;
+    height: 250px;
     display: flex;
-    justify-content: center;
+    /* box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.703); */
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.textContent{
+    box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.703);
+    border-radius: 20px;
+    height: 200px;
+    width: 700px;
+    padding: 10px;
+    margin-right: 50px;
+    display: flex;
     flex-direction: column;
+}
+
+.contentImg{
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+    background-image: url("cat.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 .authorImg{
@@ -203,11 +223,16 @@ nav {
 .intro{
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .intro span{
     font-size: 12px;
     margin: 15px;
+}
+
+.textContent h3{
+    margin-bottom: 20px;
 }
 
 .date{
@@ -231,4 +256,39 @@ nav {
     background-size: cover;
     background-position: center;
     border-radius: 5%;
+}
+
+.stats{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.leftStats .fa-solid{
+    color: gray;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.leftStats span{
+    color: gray;
+    font-size: 12px;
+    padding-right: 5px;
+}
+
+.rightStats .fa-solid{
+    color: gray;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.rightStats .fa-regular{
+    color: gray;
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+hr{
+    margin-bottom: 10px;
 }
