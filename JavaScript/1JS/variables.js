@@ -19,3 +19,8 @@ let z = Number(c);
 let y = String(d);
 console.log(typeof(z));
 console.log(typeof(y));
+
+let x = "Aditya";
+let w = Number(x);
+console.log(w);
+console.log(typeof(w));

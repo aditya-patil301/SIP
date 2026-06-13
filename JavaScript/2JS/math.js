@@ -41,3 +41,8 @@ for(let i = 1; i <= 10; i++){
     let num = 2 * i;
     console.log(`2 x ${i} = ${num}`);
 }
+
+// Boolean TypeCasting
+let z = true;
+console.log(z);
+console.log(Number(z));
