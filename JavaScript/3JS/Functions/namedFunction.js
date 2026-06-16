@@ -13,6 +13,15 @@ function greetUser(name){
 greetUser("Aditya");
 
 
+// Default Parameter
+function greetUser(name = "User"){
+    console.log("Hello, " + name + ".");
+    console.log(`Hello, ${name}.`);
+}
+greetUser("Aditya");
+greetUser();
+
+
 // Return type function
 // With multiple Parameter nad Argument
 function addition(a, b){
