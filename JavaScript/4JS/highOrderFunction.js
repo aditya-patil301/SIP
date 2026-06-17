@@ -130,3 +130,24 @@ const cartPrice = products.reduce((acc, obj) => {
     return acc + obj.price;
 }, 0);
 console.log(cartPrice);
+
+
+
+
+// Task
+let arrTask = [-2, 3, 5, 8, -9];
+const doubledTask = arrTask.map((num) => {
+    return num + 2;
+});
+// console.log(doubledTask);
+const positive = doubledTask.filter((num) => {
+    return num > 0
+});
+// console.log(positive);
+const sumTask = positive.reduce((acc, curr) => {
+    return acc + curr;
+}, 0);
+console.log(sumTask);
+
+const shortAns = arrTask.map(i => i + 2).filter(i => i > 0).reduce((acc, curr) => {return acc + curr}, 0);
+console.log(shortAns);
