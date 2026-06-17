@@ -134,7 +134,7 @@ console.log(quantities);
 
 // Extra Task
 
-const extraTaskProducts = [
+let extraTaskProducts = [
  {
    name: "Laptop",
    price: 50000,
@@ -171,3 +171,15 @@ const totalAmount = extraTaskProducts.reduce((acc, obj) => {
 }, 0);
 console.log(totalAmount);
 
+const requiredObj = extraTaskProducts.filter((obj) => obj.name === "Laptop");
+requiredObj.map((obj) => {
+    return obj.quantity = 10;
+});
+console.log(requiredObj);
+
+const laptop = products.find(obj => obj.name === "Laptop");
+if (laptop) {
+  laptop.quantity += 1;
+  const laptopTotalPrice = laptop.price * laptop.quantity;
+  console.log(`Laptop Quantity: ${laptop.quantity}, Total Price: ${laptopTotalPrice}`);
+}
