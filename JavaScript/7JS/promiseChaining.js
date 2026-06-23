@@ -136,43 +136,74 @@
 
 
 
-let obj = {};
 
-function bookMovie(movieName, seatNo) {
+function selectMovie(movieName, seatNo) {
     return new Promise((res, rej) => {
-
         setTimeout(() => {
             console.log("Movie selected.");
+            res({
+                movieName,
+                seatNo
+            });
+        }, 1000);
+    });
+}
+
+function bookSeats(data) {
+    return new Promise((res) => {
+        setTimeout(() => {
             console.log("Seat Booked.");
-            obj.movie = movieName;
-            obj.seat = seatNo;
-            res();
+            res(data);
         }, 1000);
     });
 }
 
-function payment() {
-    return new Promise((res, rej) => {
+function makePayment(data) {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            console.log("Payment Successful.");
-            res();
+            console.log("Payment successful.");
+            data.amount = data.seatNo * 300;
+            resolve(data);
         }, 1000);
     });
 }
 
-function generateTicket(ticketInfo) {
-    return new Promise((res, rej) => {
+function generateTicket(data) {
+    return new Promise((resolve) => {
         setTimeout(() => {
-            console.log(ticketInfo);
+            console.log("Ticket generated.");
+            resolve(data);
         }, 1000);
     });
 }
 
 
 
-bookMovie("Avengers", 2)
-    .then(payment)
-    .then(generateTicket(obj))
-    .catch(() => {
-        console.log("Kuchh galat hai.");
-    })
+function bookMovie(movie, seats) {
+    selectMovie(movie, seats)
+        .then(bookSeats)
+        .then(makePayment)
+        .then(generateTicket)
+        .then((ticket) => {
+            console.log(ticket);
+        });
+}
+bookMovie("Avengers", 2);
+
+
+
+
+
+// function greet() {
+//     return new Promise((res, rej) => {
+//         res('Good Morning!');
+//     });
+// }
+
+// greet()
+//     .then((msg) => {
+//         console.log(msg);
+//     })
+//     .catch(() => {
+//         console.log('Check code');
+//     })
