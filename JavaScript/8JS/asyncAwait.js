@@ -181,45 +181,45 @@
 
 // OTP Verification System
 
-function getOTP(number){
-    return new Promise((res, rej) => {
-        console.log("Your phone number is under verification. WAIT!!");
-        setTimeout(() => {
-            if(number === 6261660147){
-                res(Math.floor(Math.random() * Math.pow(10, 6)));
-            } else {
-                rej("Invalid phone number.");
-            }
-        }, 1000);
-    });
-}
+// function getOTP(number){
+//     return new Promise((res, rej) => {
+//         console.log("Your phone number is under verification. WAIT!!");
+//         setTimeout(() => {
+//             if(number === 6261660147){
+//                 res(Math.floor(Math.random() * Math.pow(10, 6)));
+//             } else {
+//                 rej("Invalid phone number.");
+//             }
+//         }, 1000);
+//     });
+// }
 
-function verifyOTP(otp, userOTP){
-    return new Promise((res, rej) => {
-        console.log("OTP is under verification. WAIT!!");
-        setTimeout(() => {
-            if(otp === userOTP){
-                res("Valid User.");
-            } else {
-                rej("Invalid OTP.");
-            }
-        }, 1000);
-    });
-}
+// function verifyOTP(otp, userOTP){
+//     return new Promise((res, rej) => {
+//         console.log("OTP is under verification. WAIT!!");
+//         setTimeout(() => {
+//             if(otp === userOTP){
+//                 res("Valid User.");
+//             } else {
+//                 rej("Invalid OTP.");
+//             }
+//         }, 1000);
+//     });
+// }
 
 
-async function OTPVerification(number){
-    try{
-        const otp = await getOTP(number);
-        console.log(`Your OTP: ${otp}`);
-        const isCorrect = await verifyOTP(otp, 873628);
-        console.log(isCorrect);
-    } catch(err){
-        console.log(err);
-    }
-}
+// async function OTPVerification(number){
+//     try{
+//         const otp = await getOTP(number);
+//         console.log(`Your OTP: ${otp}`);
+//         const isCorrect = await verifyOTP(otp, 873628);
+//         console.log(isCorrect);
+//     } catch(err){
+//         console.log(err);
+//     }
+// }
 
-OTPVerification(6261660147);
+// OTPVerification(6261660147);
 
 
 
@@ -249,3 +249,57 @@ OTPVerification(6261660147);
 // }
 
 // userChecker("samiran@gmail.com", "Aditya@123");
+
+
+
+
+
+
+// UBER Workflow
+
+function bookRide(){
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            console.log("Wait till riders accept your request..");
+            res();
+        }, 1000);
+    });
+}
+
+function acceptRide(){
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            console.log("Rider accepted your request. Wait at location.");
+            res();
+        }, 1000);
+    });
+}
+
+function startRide(){
+    return new Promise((res, rej) => {
+        setTimeout(() => {
+            console.log("Happy Journey...");
+            res();
+        }, 1000);
+    });
+}
+
+function makePayment(){
+    return new Promise((res, rej) => {
+        console.log("You reached your location, make payment..");
+        setTimeout(() => {
+            console.log("Payment done. Have a nice day..");
+            res();
+        }, 1000);
+    });
+}
+
+
+async function bookBike() {
+    await bookRide();
+    await acceptRide();
+    await startRide();
+    await makePayment();
+}
+
+bookBike();

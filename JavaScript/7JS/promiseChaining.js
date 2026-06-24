@@ -138,7 +138,7 @@
 
 
 function selectMovie(movieName, seatNo) {
-    return new Promise((res, rej) => {
+    return new Promise((res) => {
         setTimeout(() => {
             console.log("Movie selected.");
             res({
@@ -159,36 +159,35 @@ function bookSeats(data) {
 }
 
 function makePayment(data) {
-    return new Promise((resolve) => {
+    return new Promise((res) => {
         setTimeout(() => {
             console.log("Payment successful.");
             data.amount = data.seatNo * 300;
-            resolve(data);
+            res(data);
         }, 1000);
     });
 }
 
 function generateTicket(data) {
-    return new Promise((resolve) => {
+    return new Promise((res) => {
         setTimeout(() => {
             console.log("Ticket generated.");
-            resolve(data);
+            console.log(data);
         }, 1000);
     });
 }
 
 
 
-function bookMovie(movie, seats) {
-    selectMovie(movie, seats)
-        .then(bookSeats)
-        .then(makePayment)
-        .then(generateTicket)
-        .then((ticket) => {
-            console.log(ticket);
-        });
-}
-bookMovie("Avengers", 2);
+selectMovie("Avengers", 2)
+    .then((movieData) => {
+        bookSeats(movieData);
+    })
+    .then(makePayment)
+    .then(generateTicket)
+    .catch(() => {
+        console.log("Try again.")
+    })
 
 
 
