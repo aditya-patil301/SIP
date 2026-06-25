@@ -303,3 +303,5 @@ async function bookBike() {
 }
 
 bookBike();
+
+// finally block after try and catch.

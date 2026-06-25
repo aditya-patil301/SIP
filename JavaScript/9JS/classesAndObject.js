@@ -23,34 +23,34 @@
 
 
 
-// Inheritance
+Inheritance
 
-// class Person{
-//     constructor(name){
-//         this.name = name;
-//     }
+class Person{
+    constructor(name){
+        this.name = name;
+    }
 
-//     greet(){
-//         console.log(`Hello! ${this.name}.`);
-//     }
-// }
+    greet(){
+        console.log(`Hello! ${this.name}.`);
+    }
+}
 
-// class Student extends Person{
-//     constructor(name, course){
-//         super(name);
-//         this.course = course;
-//     }
+class Student extends Person{
+    constructor(name, course){
+        super(name);
+        this.course = course;
+    }
 
-//     info(){
-//         console.log(`${this.name} studies ${this.course}.`);
-//     }
-// }
+    info(){
+        console.log(`${this.name} studies ${this.course}.`);
+    }
+}
 
-// const student = new Student("Aditya", "MERN");
+const student = new Student("Aditya", "MERN");
 
-// console.log(student);
-// student.greet();
-// student.info();
+console.log(student);
+student.greet();
+student.info();
 
 
 
