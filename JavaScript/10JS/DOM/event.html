@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Aditya</h1>
+    <ul>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+        <li>item</li>
+    </ul>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo, porro laborum quae autem at tenetur a eius corporis earum enim. Earum repellat facere necessitatibus accusamus libero pariatur blanditiis culpa perspiciatis!</p>
+    <button>Submit</button>
+
+    <script>
+        const heading = document.querySelector('h1');
+        heading.style.color = 'red';
+
+        const list = document.querySelectorAll('li');
+        list.forEach(li => {
+            li.style.color = 'blue';
+            li.style.listStyle = 'none';
+        });
+
+        const paragraph = document.querySelector('p');
+        paragraph.style.color = 'green';
+
+
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+            window.location.href = 'contact.html';              // Used to change HTML page using JavaScrit
+        });
+
+        btn.style.height = '30px';
+        btn.style.width = '80px';
+        btn.style.borderRadius = '10px';
+        btn.style.border = 'none';
+        btn.style.backgroundColor = 'red';
+        btn.style.color = 'white';
+
+        // btn.onclick = () => {
+        //     console.log('Button clicked.');
+        // }
+
+        // btn.ondblclick = () => {
+        //     console.log('Double clicked.');
+        // }
+
+        // btn.onmouseover = () => {
+        //     console.log('Mouse is over button.')
+        // }
+
+
+    </script>
+</body>
+</html>
