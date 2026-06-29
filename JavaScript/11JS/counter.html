@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+            box-shadow: 5px 5px 10px gray;
+            border-radius: 20px;
+        }
+
+        .content{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 40px;
+            gap: 30px;
+        }
+
+        .content button{
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+            color: brown;
+            background-color: bisque;
+            box-shadow: 2px 2px 5px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>Counter</h1>
+        <div class="content">
+            <button class="inc">Increase</button>
+            <p>0</p>
+            <button class="dec">Decrease</button>
+        </div>
+    </div>
+
+    <!-- <div class="container"></div> -->
+
+    <script>
+        // alert(), confirm(), prompt()
+        // const heading = document.createElement('h1');
+        // heading.textContent = 'I am inside container'
+
+        // const container = document.querySelector('.container');
+        // container.appendChild(heading);
+
+        const increase = document.querySelector('.inc');
+        let num = document.querySelector('p');
+        console.log(num.innerText);
+        console.log(num.textContent);
+
+        increase.addEventListener('click', () => {
+            // x = Number(num.innerText);
+            // x += 1;
+            // num.innerText = x;
+            num.innerText = Number(num.innerText) + 1;
+        });
+
+        const decrease = document.querySelector('.dec');
+        decrease.addEventListener('click', () => {
+            // x = Number(num.innerText);
+            // x -= 1;
+            // num.innerText = x;
+            if (Number(num.innerText) > 0) {
+                num.innerText = Number(num.innerText) - 1;
+            } else {
+                alert('Value cannot be negative.')
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

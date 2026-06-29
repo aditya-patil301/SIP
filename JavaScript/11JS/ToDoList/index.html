@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="input" placeholder="Enter your task">
+    <button class="addBtn">ADD TASK</button>
+    <ul class="tasks"></ul>
+
+
+    <script>
+        const input = document.querySelector('.input');
+        const addBtn = document.querySelector('.addBtn');
+        const tasksList = document.querySelector('.tasks');
+
+        // addBtn.addEventListener('click', () => {
+        //     console.log(input.value);
+        //     const li = document.createElement('li');
+
+        //     const span = document.createElement('span');
+        //     span.classList.add('btnSpan');
+
+        //     const upBtn = document.createElement('button');
+        //     upBtn.textContent = 'UP';
+
+        //     const downBtn = document.createElement('button');
+        //     downBtn.textContent = 'DOWN';
+
+        //     const cancelBtn = document.createElement('button');
+        //     cancelBtn.textContent = 'DONE';
+
+
+        //     span.append(upBtn, downBtn, cancelBtn);
+
+        //     li.textContent = input.value;
+        //     li.classList.add('taskName');
+
+        //     li.appendChild(span);
+        //     tasksList.appendChild(li);
+        // });
+
+        addBtn.addEventListener('click', () => {
+            console.log(input.value);
+            const li = document.createElement('li');
+            li.classList.add('taskName');
+            let task = input.value;
+
+            li.innerHTML = `${task}
+                <span class="btnGroups">
+                    <button class"up">UP</button>
+                    <button class"down">DOWN</button>
+                    <button class"done">DONE</button>
+                </span>`
+            
+            li.style.listStyle = 'none';
+            if(input.value != ""){
+                tasksList.appendChild(li);
+            }
+            input.value = "";
+
+
+        });
+    </script>
+</body>
+
+</html>
