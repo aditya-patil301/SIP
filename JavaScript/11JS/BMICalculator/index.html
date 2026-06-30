@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .inputSection{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .bodyWeight {
+            padding: 20px;
+            width: 400px;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            background-color: aliceblue;
+            box-shadow: 5px 5px 10px gray;
+        }
+
+        h3{
+            margin-top: 40px;
+        }
+
+        .bodyHeight {
+            padding: 20px;
+            width: 400px;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            background-color: aliceblue;
+            box-shadow: 5px 5px 10px gray;
+        }
+
+        .calBtn{
+            margin-top: 50px;
+            width: 200px;
+            height: 60px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 5px 5px 10px gray;
+            background-color: rgb(240, 97, 97);
+            font-weight: 900;
+            color: white;
+            font-size: medium;
+        }
+
+        .result{
+            padding-top: 60px;
+        }
+
+        /* .messageBox{
+            background-color: rgb(251, 243, 233);
+            margin-top: 50px;
+            width: 500px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px gray;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="inputSection">
+        <h3>Enter your weight(in kg):</h3>
+        <input type="text" class="bodyWeight" placeholder="Enter Your Weight">
+        <h3>Enter your height(in cm):</h3>
+        <input type="text" class="bodyHeight" placeholder="Enter Your Height">
+        <button class="calBtn">Calculate BMI</button>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        const content = document.querySelector('.inputSection');
+        const bodyWeight = document.querySelector('.bodyWeight');
+        const bodyHeight = document.querySelector('.bodyHeight');
+        const result = document.querySelector('.result');
+
+        const btn = document.querySelector('.calBtn');
+
+        btn.addEventListener('click', () => {
+            const weight = Number(bodyWeight.value);
+            const height = Number(bodyHeight.value) / 100;
+
+            const BMI = (weight / (height * height)).toFixed(2);
+
+            let condition;
+
+            if(BMI < 18.5) {
+                condition = "Underweight";
+            } else if(BMI >= 18.5 && BMI < 25){
+                condition = "Normal Weight";
+            } else if(BMI >= 25 && BMI < 30){
+                condition = "Over Weight";
+            } else if(BMI >= 30 && BMI < 35){
+                condition = "Obesity Class I";
+            } else if(BMI >= 35 && BMI < 40){
+                condition = "Obesity Class II";
+            } else if(BMI >= 40){
+                condition = "Obesity Class III";
+            }
+
+            const div = document.createElement('div');
+            div.classList.add('messageBox');
+
+            const message = document.createElement('h2');
+            message.innerHTML = `Your BMI index is ${BMI} and you fall under ${condition} category.`;
+
+            result.innerHTML = "";
+            result.appendChild(message);
+            // content.appendChild(div);
+            // console.log(message);
+        });
+
+
+    </script>
+</body>
+
+</html>

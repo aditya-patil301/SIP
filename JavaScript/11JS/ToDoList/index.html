@@ -5,20 +5,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            margin-top: 30px;
+            padding: 30px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .input{
+            padding: 20px;
+            width: 400px;
+            outline: none;
+            border-radius: 10px;
+            border: none;
+            background-color: aliceblue;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .addBtn{
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+            background-color: rgb(240, 97, 97);
+            font-weight: 900;
+            color: white;
+            font-size: medium;
+        }
+
+        .taskList{
+            width: 900px;
+            padding: 10px;
+            margin-top: 30px;
+        }
+        
+        .btnGroups button{
+            height: 40px;
+            width: 100px;
+            border: none;
+            background-color: white;
+            color: rgb(240, 97, 97);
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 5px 5px 5px gray;
+            margin-left: 20px;
+        }
+
+        .taskName{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .taskName h2{
+            width: 500px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <input type="text" class="input" placeholder="Enter your task">
-    <button class="addBtn">ADD TASK</button>
-    <ul class="tasks"></ul>
+    <div class="container">
+        <input type="text" class="input" placeholder="Enter your task">
+        <button class="addBtn">ADD TASK</button>
+    </div>
+    <div class="taskList">
+        
+    </div>
 
 
     <script>
         const input = document.querySelector('.input');
         const addBtn = document.querySelector('.addBtn');
-        const tasksList = document.querySelector('.tasks');
+        const tasksList = document.querySelector('.taskList');
 
-        // addBtn.addEventListener('click', () => {
+        addBtn.addEventListener('click', () => {
+            console.log(input.value);
+            const div = document.createElement('div');
+            div.classList.add('taskName');
+            let task = input.value;
+
+            div.innerHTML = `
+                <h2 class = "taskName">${task}</h2>
+                <span class="btnGroups">
+                    <button class"up">UP</button>
+                    <button class"down">DOWN</button>
+                    <button class"done">DONE</button>
+                </span>`
+
+            if (input.value != "") {
+                tasksList.appendChild(div);
+            }
+            input.value = "";
+
+        });
+
+                // addBtn.addEventListener('click', () => {
         //     console.log(input.value);
         //     const li = document.createElement('li');
 
@@ -43,28 +135,6 @@
         //     li.appendChild(span);
         //     tasksList.appendChild(li);
         // });
-
-        addBtn.addEventListener('click', () => {
-            console.log(input.value);
-            const li = document.createElement('li');
-            li.classList.add('taskName');
-            let task = input.value;
-
-            li.innerHTML = `${task}
-                <span class="btnGroups">
-                    <button class"up">UP</button>
-                    <button class"down">DOWN</button>
-                    <button class"done">DONE</button>
-                </span>`
-            
-            li.style.listStyle = 'none';
-            if(input.value != ""){
-                tasksList.appendChild(li);
-            }
-            input.value = "";
-
-
-        });
     </script>
 </body>
 
