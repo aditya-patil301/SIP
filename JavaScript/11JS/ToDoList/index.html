@@ -7,21 +7,21 @@
     <title>Document</title>
 
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
-        .container{
+        .container {
             margin-top: 30px;
             padding: 30px;
             display: flex;
             gap: 40px;
         }
 
-        .input{
+        .input {
             padding: 20px;
             width: 400px;
             outline: none;
@@ -31,7 +31,7 @@
             box-shadow: 5px 5px 5px gray;
         }
 
-        .addBtn{
+        .addBtn {
             width: 100px;
             border-radius: 10px;
             border: none;
@@ -42,17 +42,17 @@
             font-size: medium;
         }
 
-        .taskList{
+        .taskList {
             width: 900px;
             padding: 10px;
             margin-top: 30px;
         }
-        
-        .btnGroups button{
+
+        .btnGroups button {
             height: 40px;
             width: 100px;
             border: none;
-            background-color: white;
+            background-color: rgb(246, 235, 235);
             color: rgb(240, 97, 97);
             border-radius: 10px;
             font-weight: 600;
@@ -60,15 +60,18 @@
             margin-left: 20px;
         }
 
-        .taskName{
+        .taskInfo {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
 
-        .taskName h2{
-            width: 500px;
+        .taskName {
+            width: 450px;
+            background-color: rgba(176, 237, 245, 0.589);
+            padding: 20px;
+            border-radius: 20px;
         }
     </style>
 
@@ -80,7 +83,7 @@
         <button class="addBtn">ADD TASK</button>
     </div>
     <div class="taskList">
-        
+
     </div>
 
 
@@ -92,25 +95,53 @@
         addBtn.addEventListener('click', () => {
             console.log(input.value);
             const div = document.createElement('div');
-            div.classList.add('taskName');
+            div.classList.add('taskInfo');
             let task = input.value;
 
             div.innerHTML = `
                 <h2 class = "taskName">${task}</h2>
                 <span class="btnGroups">
-                    <button class"up">UP</button>
-                    <button class"down">DOWN</button>
-                    <button class"done">DONE</button>
+                    <button class="up">UP</button>
+                    <button class="down">DOWN</button>
+                    <button class="done">DONE</button>
                 </span>`
 
             if (input.value != "") {
                 tasksList.appendChild(div);
             }
             input.value = "";
-
         });
 
-                // addBtn.addEventListener('click', () => {
+        // Event Bubbling and Event Delegation
+
+        tasksList.addEventListener('click', (ev) => {
+
+            let tasks = ev.target;
+            console.log(tasks);
+
+            if (tasks.classList.contains('up')) {
+                let parentElement = tasks.parentElement.parentElement;
+                console.log(parentElement);
+                let previousElement = parentElement.previousElementSibling;
+                console.log(previousElement);
+                if (previousElement) {
+                    tasksList.insertBefore(parentElement, previousElement);
+                }
+            } else if (tasks.classList.contains('down')) {
+                let parentElement = tasks.parentElement.parentElement;
+                console.log(parentElement);
+                let nextElement = parentElement.nextElementSibling;
+                console.log(nextElement);
+                if (nextElement) {
+                    tasksList.insertBefore(nextElement, parentElement);
+                }
+            } else if (tasks.classList.contains('done')) {
+                let parentElement = tasks.parentElement.parentElement;
+                parentElement.remove();
+            }
+        });
+
+        // addBtn.addEventListener('click', () => {
         //     console.log(input.value);
         //     const li = document.createElement('li');
 
