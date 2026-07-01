@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 97vh;
+            width: 98vw;
+        }
+
+        .changeBtn {
+            outline: 0.2px;
+            background-color: aliceblue;
+            border: none;
+            box-shadow: 10px 10px 10px black;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="changeBtn">CLICK ME TO CHANGE COLOR</button>
+    <!-- <button class="stopBtn">CLICK ME TO STOP CHANGING COLOR</button> -->
+
+    <script>
+        let changeBtn = document.querySelector('.changeBtn');
+        document.body.style.backgroundColor = localStorage.getItem('color');
+
+        // btn.addEventListener('click', () => {
+        //     const letters = '0123456789ABCDEF';
+        //     let color = '#'
+        //     for(let i = 0; i < 6; i++){
+        //         color += letters[Math.floor(Math.random() * 16)];
+        //     }
+        //     console.log(color);
+        //     document.body.style.backgroundColor = color;
+
+        //     localStorage.setItem("color", color);
+        // });
+
+
+        changeBtn.addEventListener('click', () => {
+            let color = 'rgb('
+            for(let i = 0; i < 3; i++){
+                if(i < 2){
+                    color += `${Math.floor(Math.random() * 255)}, `;
+                } else {
+                    color += `${Math.floor(Math.random() * 255)})`;
+                }
+
+            }
+            console.log(color);
+            document.body.style.backgroundColor = color;
+            localStorage.setItem("color", color);
+        });
+
+
+        // changeBtn.addEventListener('click', () => {
+        //     const letters = '0123456789ABCDEF';
+        //     setInterval(() => {
+        //         let color = '#'
+        //         for (let i = 0; i < 6; i++) {
+        //             color += letters[Math.floor(Math.random() * 16)];
+        //         }
+        //         console.log(color);
+        //         document.body.style.backgroundColor = color;
+        //         localStorage.setItem("color", color);
+        //     }, 5000);
+        // });
+
+
+    </script>
+</body>
+
+</html>
