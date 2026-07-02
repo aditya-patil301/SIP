@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <ul class="nameList">
+
+    </ul>
+
+    <script>
+        // Get data by FETCH Method
+
+        // const list = document.querySelector('.nameList');
+
+        // async function getData(){
+        //     try {
+        //         const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        //         // console.log(response);
+        //         const data = await response.json();
+        //         console.log(data);
+
+        //         data.forEach((obj)=> {
+        //             const li = document.createElement('li');
+        //             // li.innerText = obj.name;
+        //             li.innerHTML = `Name: ${obj.name} <br>
+        //                             UserName: ${obj.username} <br>
+        //                             Email: ${obj.email} <br>
+        //                             Address: ${obj.address.city}<br>`;
+        //             li.classList.add('names');
+        //             li.style.marginBottom = '20px';
+        //             li.style.listStyle = 'none';
+        //             list.appendChild(li);
+        //         });
+        //     } catch(error){
+        //         console.log(error, 'Please check code.');
+        //     }
+        // }
+        // getData();
+
+
+        // Get data by AXIOS Method
+
+        const list = document.querySelector('.nameList');
+
+        async function getData() {
+            try {
+                const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+                // console.log(response);
+                // const data = await response.json();  
+                console.log(response);
+                console.log(typeof (response));
+
+                response.data.forEach((obj) => {
+                    const li = document.createElement('li');
+                    // li.innerText = obj.name;
+                    li.innerHTML = `Name: ${obj.name} <br>
+                                    UserName: ${obj.username} <br>
+                                    Email: ${obj.email} <br>
+                                    Address: ${obj.address.city}<br>`;
+                    li.classList.add('names');
+                    li.style.marginBottom = '20px';
+                    li.style.listStyle = 'none';
+                    list.appendChild(li);
+                });
+            } catch (error) {
+                console.log(error, 'Please check code.');
+            }
+        }
+        getData();
+    </script>
+
+</body>
+
+</html>

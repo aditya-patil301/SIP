@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 96vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .inputDiv{
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            padding: 25px;
+            margin: 30px 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatarImg {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            background-position: center center;
+            background-size: cover;
+            box-shadow: 10px 10px 10px gray;
+            margin-bottom: 20px;
+        }
+
+        .inputBox {
+            padding: 20px 40px;
+            outline: none;
+            background-color: rgb(195, 237, 255);
+            border-radius: 10px;
+            width: 350px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .searchBtn {
+            padding: 10px;
+            outline: none;
+            color: white;
+            font-weight: 500;
+            background-color: rgb(221, 142, 100);
+            border-radius: 5px;
+            width: 120px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inputDiv">
+        <input type="text" class="inputBox" placeholder="Enter Your GitHub Id">
+        <button class="searchBtn">Search</button>
+    </div>
+    <div class="card">
+
+    </div>
+
+    <script>
+        const input = document.querySelector('.inputBox');
+        const searchBtn = document.querySelector('.searchBtn');
+        const card = document.querySelector('.card');
+        let api = 'https://api.github.com/users/';
+
+        async function getData(apiLink) {
+            card.innerHTML = "";
+
+            const response = await fetch(apiLink);
+            const data = await response.json();
+            console.log(data);
+
+            const[ date, atTime ] = data.updated_at.split("T");
+            const time = atTime.replace("Z", "");
+
+            console.log(date);
+            console.log(time);
+
+            const image = document.createElement('img');
+            image.classList.add('avatarImg');
+            image.src = `${data.avatar_url}`;
+
+            const userName = document.createElement('h1');
+            userName.classList.add('userName');
+            userName.innerHTML = `User Name: ${data.login}`;
+
+            const name = document.createElement('h2');
+            name.classList.add('name');
+            name.innerHTML = `Name: ${data.name}`;
+
+            const repositories = document.createElement('h2');
+            repositories.classList.add('repositories');
+            repositories.innerHTML = `Repositories Created: ${data.public_repos}`;
+
+            const updatedAt = document.createElement('h2');
+            updatedAt.classList.add('updatedAt');
+            updatedAt.innerHTML = `Last Updated At: On ${date} at ${time}`;
+
+            card.append(image, userName, name, repositories, updatedAt);
+
+            card.style.backgroundColor = 'rgb(255, 228, 193)';
+            card.style.boxShadow = '10px 10px 10px gray';
+            card.style.borderRadius = '10px';
+        }
+
+        searchBtn.addEventListener('click', () => {
+            api = api + input.value;
+            getData(api);
+            input.value = "";
+        });
+    </script>
+</body>
+
+</html>
