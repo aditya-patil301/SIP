@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 96vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card{
+            padding: 30px 60px;
+            display: flex;
+            flex-direction: row;
+            margin: 30px;
+            box-shadow: 10px 10px 10px gray;
+            border-radius: 40px;
+        }
+
+        .image{
+            height: 300px;
+            width: 400px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px gray;
+            margin-right: 50px;
+        }
+
+        .image img{
+            height: 300px;
+            width: 400px;
+            border-radius: 20px;
+            
+        }
+
+        .liveBtn {
+            padding: 10px;
+            outline: none;
+            color: white;
+            font-weight: 500;
+            background-color: rgb(221, 142, 100);
+            border-radius: 5px;
+            width: 200px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+            font-size: 20px;
+        }
+
+        .textContent{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Project World</h1>
+    <div class="card">
+        <div class="image">
+            <img src="to-do.png" alt="">
+        </div>
+        <div class="textContent">
+            <h1>To-Do List</h1>
+            <h3>Developed a task management application using HTML, CSS, and JavaScript that allows users to add, edit, delete, and save tasks using Local Storage for data persistence. Implemented dynamic DOM manipulation and event handling to provide a smooth user experience.</h3>
+            <a href="../../11JS/ToDoList/index.html"><button class="liveBtn">Live Project</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="bmi.png" alt="">
+        </div>
+        <div class="textContent">
+            <h1>BMI Calculator</h1>
+            <h3>Built a responsive BMI Calculator that takes user inputs, calculates Body Mass Index, and displays health categories with proper input validation. Designed an intuitive and mobile-friendly interface to improve usability across devices.</h3>
+            <a href="../../11JS/BMICalculator/index.html"><button class="liveBtn">Live Project</button></a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="git.png" alt="">
+        </div>
+        <div class="textContent">
+            <h1>Fetch Git User Information</h1>
+            <h3>Created a web application that integrates with the GitHub REST API to fetch and display user information such as profile details, repositories, followers, and following using asynchronous JavaScript and Fetch API. Implemented error handling and loading states to enhance the overall user experience.</h3>
+            <a href="../../13JS/AJAX/githubAPI.html"><button class="liveBtn">Live Project</button></a>
+        </div>
+    </div>
+</body>
+</html>

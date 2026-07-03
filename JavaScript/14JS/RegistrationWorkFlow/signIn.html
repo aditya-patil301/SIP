@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 96vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .email, .password {
+            padding: 20px 40px;
+            outline: none;
+            background-color: rgb(195, 237, 255);
+            border-radius: 10px;
+            width: 350px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+        }
+
+        .signIn {
+            padding: 10px;
+            outline: none;
+            color: white;
+            font-weight: 500;
+            background-color: rgb(221, 142, 100);
+            border-radius: 5px;
+            width: 120px;
+            border: none;
+            box-shadow: 5px 5px 5px gray;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sign In</h1>
+    <input type="email" class="email" placeholder="Enter Your Email Id">
+    <input type="password" class="password" placeholder="Enter Your Password">
+    <button class="signIn">Sign In</button>
+
+    <script>
+        const btn = document.querySelector('.signIn');
+        const emailInp = document.querySelector('.email');
+        const passwordInp = document.querySelector('.password');
+
+
+        btn.addEventListener('click', () => {
+            const email = emailInp.value;
+            const password = passwordInp.value;
+
+            const userEmail = localStorage.getItem("email");
+            const userPassword = localStorage.getItem("password");
+
+            if(userEmail === email && userPassword === password){
+                window.location.href = 'projectWorld.html';
+            } else if(userEmail === email && userPassword !== password){
+                alert(`Enter correct password.`);
+            } else if(userEmail !== email && userPassword !== password){
+                alert(`Invalid Creadentials.`);
+            } else {
+                alert(`Enter valid email.`);
+            }
+        });
+
+
+        // btn.addEventListener('click', () => {
+        //     const email = emailInp.value;
+        //     const password = passwordInp.value;
+        //     let found = false;
+        //     for (let i = 0; i < localStorage.length; i++) {
+        //         const key = localStorage.key(i);
+        //         console.log(key);
+        //         const data = localStorage.getItem(key);
+        //         const obj = JSON.parse(data);
+
+        //         const userEmail = obj.email;
+        //         const userPassword = obj.password;
+
+        //         if (userEmail === email && userPassword === password) {
+        //             found = true;
+        //             break;
+        //         }
+        //     }
+
+        //     if(found){
+        //         window.location.href = 'projectWorld.html';
+        //     } else {
+        //         alert(`Please recheck credentials`);
+        //         window.location.href = 'homePage.html';
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

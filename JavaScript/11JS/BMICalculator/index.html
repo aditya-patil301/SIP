@@ -7,12 +7,19 @@
     <title>Document</title>
 
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .inputSection{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .bodyWeight {
@@ -68,6 +75,7 @@
 </head>
 
 <body>
+    <h1>BMI Calculator</h1>
     <div class="inputSection">
         <h3>Enter your weight(in kg):</h3>
         <input type="text" class="bodyWeight" placeholder="Enter Your Weight">
