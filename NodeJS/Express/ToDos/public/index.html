@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <!-- <form action="/addTask" method="get">
+        <input type="text" name="task" class="input" placeholder="Enter your task">
+        <button>Submit</button>
+    </form> -->
+
+    <form>
+        <h1>To-Do List</h1>
+        <input type="text" name="task" class="input" placeholder="Enter your task">
+        <button>Add Task</button>
+        <ul class="taskList">
+
+        </ul>
+    </form>
+
+    <script>
+        const input = document.querySelector(".input");
+        const button = document.querySelector("button");
+        const taskList = document.querySelector("ul");
+
+        // button.addEventListener('click', async() => {
+        //     let task = input.value;
+        //     await axios.post('/addtask', {task});
+        // });
+
+        function updateToDo(data) {
+            taskList.innerHTML = "";
+            data.forEach((element) => {
+                let li = document.createElement('li');
+                li.classList.add('taskName');
+                li.textContent = element;
+                li.innerHTML = `<span class="task">${element}</span>
+                                <div class="btnGroup">
+                                    <button class="up">UP</bbutton>
+                                    <button class="down">DOWN</bbutton>
+                                    <button class="delete">DELETE</bbutton>
+                                </div>`;
+                taskList.append(li);
+                input.value = "";
+            });
+        }
+
+        button.addEventListener('click', async (e) => {
+            e.preventDefault();
+            let task = input.value;
+            let { data } = await axios.get(`/addtask?work=${task}`);
+            console.log(data);
+
+            // data.forEach((element) => {
+            //     let li = document.createElement('li');
+            //     li.classList.add('taskName');
+            //     li.textContent = element;
+            //     taskList.append(li);
+            // });
+
+            // data.forEach((element) => {
+            //     let li = document.createElement('li');
+            //     li.classList.add('taskName');
+            //     li.textContent = element;
+            //     li.innerHTML = `<span class="task">${element}</span>
+            //                     <div class="btnGroup">
+            //                         <button class="up">UP</bbutton>
+            //                         <button class="down">DOWN</bbutton>
+            //                         <button class="delete">DELETE</bbutton>
+            //                     </div>`;
+            //     taskList.append(li);
+            //     input.value = "";
+            // });
+
+            updateToDo(data);
+        });
+
+        async function loadToDo() {
+            try {
+                let { data } = await axios.get('/todos');
+                updateToDo(data);
+            } catch ({ error }) {
+                console.log(error);
+            }
+        }
+
+        loadToDo();
+
+        taskList.addEventListener('click', async (e) => {
+            e.preventDefault();
+            let btns = e.target;
+            console.log(btns);
+            if (btns.classList.contains('up')) {
+                console.log(btns.parentElement.previousElementSibling.innerText);
+                let { data } = await axios.get(`/increase?work=${btns.parentElement.previousElementSibling.innerText}`);
+                console.log(data);
+                updateToDo(data);
+            } else if (btns.classList.contains('down')) {
+                console.log(btns.parentElement.previousElementSibling.innerText);
+                let { data } = await axios.get(`/decrease?work=${btns.parentElement.previousElementSibling.innerText}`);
+                console.log(data);
+                updateToDo(data);
+            } else if(btns.classList.contains('delete')){
+                console.log(btns.parentElement.previousElementSibling.innerText);
+                let { data } = await axios.get(`/delete?work=${btns.parentElement.previousElementSibling.innerText}`);
+                console.log(data);
+                updateToDo(data);
+            }
+        });
+    </script>
+</body>
+
+</html>
