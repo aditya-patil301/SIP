@@ -53,7 +53,8 @@
         button.addEventListener('click', async (e) => {
             e.preventDefault();
             let task = input.value;
-            let { data } = await axios.get(`/addtask?work=${task}`);
+            // let { data } = await axios.get(`/addtask?work=${task}`);
+            let { data } = await axios.post(`/addtask`, {work: task});
             console.log(data);
 
             // data.forEach((element) => {
@@ -97,17 +98,23 @@
             console.log(btns);
             if (btns.classList.contains('up')) {
                 console.log(btns.parentElement.previousElementSibling.innerText);
-                let { data } = await axios.get(`/increase?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let task = btns.parentElement.previousElementSibling.innerText;
+                // let { data } = await axios.get(`/increase?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let { data } = await axios.put(`/increase`, {work: task});
                 console.log(data);
                 updateToDo(data);
             } else if (btns.classList.contains('down')) {
                 console.log(btns.parentElement.previousElementSibling.innerText);
-                let { data } = await axios.get(`/decrease?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let task = btns.parentElement.previousElementSibling.innerText;
+                // let { data } = await axios.get(`/decrease?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let { data } = await axios.patch(`/decrease`, {work: task});
                 console.log(data);
                 updateToDo(data);
             } else if(btns.classList.contains('delete')){
                 console.log(btns.parentElement.previousElementSibling.innerText);
-                let { data } = await axios.get(`/delete?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let task = btns.parentElement.previousElementSibling.innerText;
+                // let { data } = await axios.get(`/delete?work=${btns.parentElement.previousElementSibling.innerText}`);
+                let { data } = await axios.delete(`/delete`, {data : {work: task}});
                 console.log(data);
                 updateToDo(data);
             }

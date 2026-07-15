@@ -1,0 +1,14 @@
+mongosh = use shell
+show dbs = show all dbs
+use sb_name = create and switch to database
+db.createCollection('collection_name) = create collection
+show collections = shows all collection
+db.collection_name.insertOne() = used to create document
+db.collection_name.insertMany([]) = used to create document
+db.collection_name.find() = show full data in collection
+
+
+{ name: "Aditya", course: "BCA", sem: "5th", age: "21", cgpa: "8.97"},
+{ name: "Navi", course: "BCA", sem: "5th", age: "21", cgpa: "8.72"},
+{ name: "Gaurav", course: "BCA", sem: "5th", age: "21", cgpa: "8.43"},
+{ name: "Chetan", course: "BCA", sem: "5th", age: "20", cgpa: "8.52"}
