@@ -6,6 +6,18 @@ show collections = shows all collection
 db.collection_name.insertOne() = used to create document
 db.collection_name.insertMany([]) = used to create document
 db.collection_name.find() = show full data in collection
+db.BCA.find().pretty() = give documents in proper format
+db.BCA.find({condition}) = db.BCA.find({name: "Gaurav"}) = gives document where name is Gaurav
+db.BCA.find({ cgpa: { $gt: 8.7 } }); $lt, $gte, $eq, $ne -- COMPARATOR
+db.BCA.find({ $or : [{age : 20}, {name: "Gaurav"}]}); // db.BCA.find({ $or : [{age : 20}, {cgpa: {$gt: 8.7}}]});
+db.BCA.updateOne( {name: "Adi"}, {$set: {age : "22"}}) = Used to update data
+db.BCA.updateOne( {id: '6a55bb2b82fffa38d525e0b7'}, {$set: {name : "Vishal", course: "BCA", sem: "5th", age: "21", cgpa: "9.71"}})
+db.BCA.updateMany( {}, {$set: {city: "Indore"}})
+db.BCA.updateMany({}, {$inc : {cgpa: 1}})
+db.BCA.deleteOne({name: "Gaurav"})
+db.BCA.deleteMany()
+db.BCA.drop()
+db.dropDatabase()
 
 
 { name: "Aditya", course: "BCA", sem: "5th", age: "21", cgpa: "8.97"},
