@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {{>navbar}}
+    <h1>SignUp in Auth World</h1>
+    <form action="/signup" method="post">
+        <input type="text" name="username" placeholder="Enter Your Name">
+        <input type="password" name="password" placeholder="Enter Your Password">
+        <button type="submit">Submit And SignUp</button>
+    </form>
+    {{msg}}
+</body>
+
+</html>
